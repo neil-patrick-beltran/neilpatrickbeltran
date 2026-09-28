@@ -21,6 +21,8 @@ const projects = [
   },
 ]
 
+const currentYear = new Date().getFullYear()
+
 function App() {
   return (
     <div className="portfolio">
@@ -71,7 +73,7 @@ function App() {
       </main>
 
       <footer>
-        <p>© {new Date().getFullYear()} Neil Patrick Beltran</p>
+        <p>© {currentYear} Neil Patrick Beltran</p>
         <a href="#top">Back to top</a>
       </footer>
     </div>
