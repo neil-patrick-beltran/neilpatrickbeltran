@@ -67,7 +67,7 @@ function App() {
           <h2>Contact</h2>
           <p>
             Want to collaborate or chat about opportunities? Connect with me on{' '}
-            <a href="https://github.com/neil-patrick-beltran">GitHub</a>.
+            <a href="https://github.com/neil-patrick-beltran" target="_blank" rel="noreferrer noopener">GitHub (opens in a new tab)</a>.
           </p>
         </section>
       </main>

@@ -44,6 +44,15 @@ h1 {
   color: #ffffff;
   background: #18181b;
   font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-actions a:hover {
+  background: #27272a;
+}
+
+.hero-actions .secondary:hover {
+  background: #f4f4f5;
 }
 
 .hero-actions .secondary {
