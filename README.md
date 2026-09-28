@@ -6,7 +6,7 @@ Basically my portfolio repository.
 
 This app is configured to deploy to GitHub Pages at:
 
-- <https://neil-patrick-beltran.github.io/neilpatrickbeltran/>
+- <https://neilpatrickbeltran.com>
 
 Deployment is handled by the GitHub Actions workflow at `.github/workflows/deploy-pages.yml`.
 
