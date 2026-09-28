@@ -1,0 +1,130 @@
+.portfolio {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 3rem 1.25rem 2rem;
+}
+
+.hero {
+  border: 1px solid #d4d4d8;
+  border-radius: 18px;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #ffffff, #f4f4f5);
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #52525b;
+}
+
+h1 {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+
+.intro {
+  max-width: 60ch;
+  color: #3f3f46;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-actions a {
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #18181b;
+  color: #ffffff;
+  background: #18181b;
+  font-weight: 600;
+}
+
+.hero-actions .secondary {
+  color: #18181b;
+  background: transparent;
+}
+
+.hero-actions a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.section {
+  margin-top: 2.5rem;
+}
+
+.section h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.project-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.project-card {
+  border: 1px solid #d4d4d8;
+  border-radius: 14px;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.project-card p {
+  margin: 0;
+  color: #3f3f46;
+}
+
+.project-card span {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #52525b;
+}
+
+#contact a {
+  color: #18181b;
+  font-weight: 600;
+}
+
+#contact a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d4d4d8;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: #52525b;
+}
+
+footer a {
+  color: #18181b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+footer a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
