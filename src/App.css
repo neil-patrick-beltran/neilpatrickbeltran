@@ -101,6 +101,11 @@ h1 {
   font-weight: 600;
 }
 
+#contact a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
 footer {
   margin-top: 3rem;
   padding-top: 1.25rem;
