@@ -66,8 +66,8 @@ function App() {
         <section className="section" id="contact">
           <h2>Contact</h2>
           <p>
-            Want to collaborate or chat about opportunities? Reach me at{' '}
-            <a href="mailto:neil@example.com">neil@example.com</a>.
+            Want to collaborate or chat about opportunities? Connect with me on{' '}
+            <a href="https://github.com/neil-patrick-beltran" target="_blank" rel="noreferrer">GitHub</a>.
           </p>
         </section>
       </main>
