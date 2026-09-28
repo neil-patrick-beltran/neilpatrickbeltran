@@ -51,6 +51,11 @@ h1 {
   background: transparent;
 }
 
+.hero-actions a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
 .section {
   margin-top: 2.5rem;
 }
@@ -109,6 +114,12 @@ footer {
 
 footer a {
   color: #18181b;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   font-weight: 600;
+}
+
+footer a:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
 }
