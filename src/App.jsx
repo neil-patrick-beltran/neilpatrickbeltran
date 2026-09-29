@@ -2,22 +2,16 @@ import './App.css'
 
 const projects = [
   {
-    title: 'Marketing Website Refresh',
-    description:
-      'A responsive redesign focused on performance, accessibility, and clearer product storytelling.',
-    stack: 'React · Vite · CSS',
+    title: 'dtr-ar',
+    description: 'A digital time record project.',
   },
   {
-    title: 'Task Tracker Dashboard',
-    description:
-      'A productivity dashboard with drag-and-drop workflows and quick progress insights for teams.',
-    stack: 'React · TypeScript · REST API',
+    title: 'RfidTagging',
+    description: 'An RFID tagging project.',
   },
   {
-    title: 'E-commerce Landing Page',
-    description:
-      'A conversion-focused storefront page with reusable UI sections and clean, modern visuals.',
-    stack: 'React · JavaScript · Responsive Design',
+    title: 'mtop',
+    description: 'A project named mtop.',
   },
 ]
 
@@ -57,7 +51,6 @@ function App() {
               <article key={project.title} className="project-card">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <span>{project.stack}</span>
               </article>
             ))}
           </div>
@@ -65,10 +58,20 @@ function App() {
 
         <section className="section" id="contact">
           <h2>Contact</h2>
-          <p>
-            Want to collaborate or chat about opportunities? Connect with me on{' '}
-            <a href="https://github.com/neil-patrick-beltran" target="_blank" rel="noreferrer">GitHub</a>.
-          </p>
+          <ul className="contact-list">
+            <li>
+              Email: <a href="mailto:neil.patrick.beltran@gmail.com">neil.patrick.beltran@gmail.com</a>
+            </li>
+            <li>
+              Phone: <a href="tel:+639524528668">+63 952 452 8668</a>
+            </li>
+            <li>
+              LinkedIn:{' '}
+              <a href="https://www.linkedin.com/in/neil-patrick-beltran" target="_blank" rel="noreferrer">
+                neil-patrick-beltran
+              </a>
+            </li>
+          </ul>
         </section>
       </main>
 
