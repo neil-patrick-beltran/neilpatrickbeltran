@@ -30,6 +30,16 @@
   --focus: #f1c453;
 }
 
+:root[data-theme='light'] {
+  color-scheme: light;
+  background-color: #f7f9f7;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  background-color: #101611;
+}
+
 .portfolio > *:not(.skip-link) {
   width: min(960px, 100%);
   margin-inline: auto;

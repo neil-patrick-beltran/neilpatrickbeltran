@@ -90,6 +90,10 @@ function App() {
   const { theme } = themePreference
 
   useEffect(() => {
+    document.documentElement.dataset.theme = theme
+  }, [theme])
+
+  useEffect(() => {
     if (themePreference.isUserSelected) return undefined
 
     const mediaQuery = window.matchMedia?.('(prefers-color-scheme: dark)')
