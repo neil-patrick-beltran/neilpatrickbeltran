@@ -24,8 +24,9 @@ function App() {
         <p className="eyebrow">Portfolio</p>
         <h1>Hi, I&apos;m Neil Patrick Beltran</h1>
         <p className="intro">
-          I build modern web experiences with React, focused on clean UI, strong usability,
-          and reliable performance.
+          I&apos;m a versatile full-stack software engineer building end-to-end applications with
+          Spring Boot, Gin, and Express.js on the back end, and React, jQuery, and Angular on the
+          front end.
         </p>
         <div className="hero-actions">
           <a href="#projects">View Projects</a>
