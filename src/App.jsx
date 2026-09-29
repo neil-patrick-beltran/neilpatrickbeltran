@@ -15,6 +15,36 @@ const projects = [
   },
 ]
 
+const experience = [
+  {
+    company: 'Lancesoft Inc.',
+    dates: '2025–Present',
+    title: 'Software Engineer',
+    summary:
+      'Builds and maintains software applications, contributing across implementation, testing, and ongoing improvements.',
+    mark: 'L',
+    markClass: 'lancesoft-mark',
+  },
+  {
+    company: 'Vertere Global Solutions',
+    dates: '2023–2025',
+    title: 'Programmer Analyst II',
+    summary:
+      'Analyzed business needs and developed, enhanced, and supported software solutions.',
+    mark: 'VG',
+    markClass: 'vertere-mark',
+  },
+  {
+    company: 'City Government of San Pablo',
+    dates: '2020–2023',
+    title: 'Programmer',
+    summary:
+      'Developed and maintained software applications to support the city government’s operations.',
+    mark: 'SP',
+    markClass: 'san-pablo-mark',
+  },
+]
+
 const currentYear = new Date().getFullYear()
 
 function App() {
@@ -37,12 +67,27 @@ function App() {
       </header>
 
       <main>
-        <section className="section" id="about">
-          <h2>About</h2>
-          <p>
-            I&apos;m a front-end developer who enjoys turning ideas into responsive, accessible
-            interfaces. I care about maintainable code and thoughtful user experiences.
-          </p>
+        <section className="section" id="experience">
+          <h2>Work Experience</h2>
+          <div className="experience-list">
+            {experience.map((role) => (
+              <article className="experience-card" key={role.company}>
+                <div className={`company-mark ${role.markClass}`} aria-hidden="true">
+                  {role.mark}
+                </div>
+                <div className="experience-content">
+                  <div className="experience-heading">
+                    <div>
+                      <h3>{role.company}</h3>
+                      <p className="experience-title">{role.title}</p>
+                    </div>
+                    <p className="experience-dates">{role.dates}</p>
+                  </div>
+                  <p className="experience-summary">{role.summary}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="section" id="projects">

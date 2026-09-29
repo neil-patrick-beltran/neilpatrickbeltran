@@ -65,6 +65,75 @@ h1 {
   font-size: 1.5rem;
 }
 
+.experience-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1.25rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.company-mark {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.lancesoft-mark {
+  background: #2563eb;
+}
+
+.vertere-mark {
+  background: #0f766e;
+}
+
+.san-pablo-mark {
+  background: #a16207;
+}
+
+.experience-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experience-heading h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.experience-title,
+.experience-dates,
+.experience-summary {
+  margin: 0.25rem 0 0;
+  color: #52525b;
+}
+
+.experience-dates {
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+}
+
+.experience-summary {
+  margin-top: 0.75rem;
+  color: #3f3f46;
+}
+
 .project-grid {
   margin-top: 1.25rem;
   display: grid;
@@ -138,4 +207,22 @@ footer a {
 footer a:focus-visible {
   outline: 3px solid #3b82f6;
   outline-offset: 2px;
+}
+
+@media (max-width: 540px) {
+  .experience-card {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .company-mark {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .experience-heading {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
 }
