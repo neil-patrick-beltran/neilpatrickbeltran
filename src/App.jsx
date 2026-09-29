@@ -3,15 +3,15 @@ import './App.css'
 const projects = [
   {
     title: 'dtr-ar',
-    url: 'https://github.com/neil-patrick-beltran/dtr-ar',
+    description: 'A digital time record project.',
   },
   {
     title: 'RfidTagging',
-    url: 'https://github.com/neil-patrick-beltran/RfidTagging',
+    description: 'An RFID tagging project.',
   },
   {
     title: 'mtop',
-    url: 'https://github.com/neil-patrick-beltran/mtop',
+    description: 'A project named mtop.',
   },
 ]
 
@@ -50,9 +50,7 @@ function App() {
             {projects.map((project) => (
               <article key={project.title} className="project-card">
                 <h3>{project.title}</h3>
-                <a href={project.url} target="_blank" rel="noreferrer">
-                  View repository on GitHub
-                </a>
+                <p>{project.description}</p>
               </article>
             ))}
           </div>
