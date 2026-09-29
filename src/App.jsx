@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 const projects = [
@@ -48,25 +49,52 @@ const experience = [
 const currentYear = new Date().getFullYear()
 
 function App() {
+  const [theme, setTheme] = useState('light')
+
   return (
-    <div className="portfolio">
+    <div className={`portfolio ${theme === 'dark' ? 'theme-dark' : ''}`}>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <header className="hero" id="top">
-        <p className="eyebrow">Portfolio</p>
-        <h1>Hi, I&apos;m Neil Patrick Beltran</h1>
-        <p className="intro">
-          I&apos;m a versatile full-stack software engineer building end-to-end applications with
-          Spring Boot, Gin, and Express.js on the back end, and React, jQuery, and Angular on the
-          front end.
-        </p>
-        <div className="hero-actions">
-          <a href="#projects">View Projects</a>
-          <a href="#contact" className="secondary">
-            Contact Me
-          </a>
+        <div className="hero-header">
+          <p className="eyebrow">Portfolio</p>
+          <div className="theme-toggle" role="group" aria-label="Color theme">
+            <button
+              type="button"
+              className={theme === 'light' ? 'active' : ''}
+              aria-pressed={theme === 'light'}
+              onClick={() => setTheme('light')}
+            >
+              Light
+            </button>
+            <button
+              type="button"
+              className={theme === 'dark' ? 'active' : ''}
+              aria-pressed={theme === 'dark'}
+              onClick={() => setTheme('dark')}
+            >
+              Dark
+            </button>
+          </div>
+        </div>
+        <div className="hero-copy">
+          <h1>Hi, I&apos;m Neil Patrick Beltran</h1>
+          <p className="intro">
+            I&apos;m a versatile full-stack software engineer building end-to-end applications with
+            Spring Boot, Gin, and Express.js on the back end, and React, jQuery, and Angular on the
+            front end.
+          </p>
+          <div className="hero-actions">
+            <a href="#projects">View Projects</a>
+            <a href="#contact" className="secondary">
+              Contact Me
+            </a>
+          </div>
         </div>
       </header>
 
-      <main>
+      <main id="main-content">
         <section className="section" id="experience">
           <h2>Work Experience</h2>
           <div className="experience-list">
