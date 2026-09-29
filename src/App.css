@@ -14,10 +14,12 @@
   min-height: 100vh;
   color: var(--text);
   background: var(--surface-muted);
+  color-scheme: light;
   transition: color 160ms ease, background-color 160ms ease;
 }
 
 .portfolio.theme-dark {
+  color-scheme: dark;
   --primary: #75cf85;
   --primary-foreground: #101611;
   --surface: #18211c;
@@ -115,6 +117,18 @@ h1 {
   max-width: 60ch;
   color: var(--text-muted);
   font-size: 1.1rem;
+}
+
+.technology {
+  display: inline-block;
+  padding-inline: 0.35em;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--primary);
+  font-size: 0.9em;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
 }
 
 .hero-actions {
