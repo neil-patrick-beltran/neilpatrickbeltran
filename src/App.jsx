@@ -72,7 +72,7 @@ function App() {
           <div className="experience-list">
             {experience.map((role) => (
               <article className="experience-card" key={role.company}>
-                <div className={`company-mark ${role.markClass}`} aria-label={`${role.company} logo`}>
+                <div className={`company-mark ${role.markClass}`} aria-hidden="true">
                   {role.mark}
                 </div>
                 <div className="experience-content">
