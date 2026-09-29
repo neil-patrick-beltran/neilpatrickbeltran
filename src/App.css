@@ -1,32 +1,120 @@
+:root {
+  --primary: #006400;
+  --primary-foreground: #fff;
+  --primary-strong: #004b00;
+  --surface: #ffffff;
+  --surface-muted: #f7f9f7;
+  --text: #1f2933;
+  --text-muted: #52615a;
+  --border: #b8c8bd;
+  --focus: #b8860b;
+}
+
 .portfolio {
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--surface-muted);
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.portfolio.theme-dark {
+  --primary: #75cf85;
+  --primary-foreground: #101611;
+  --surface: #18211c;
+  --surface-muted: #101611;
+  --text: #edf4ee;
+  --text-muted: #c0cec3;
+  --border: #58705e;
+  --focus: #f1c453;
+}
+
+.portfolio > *:not(.skip-link) {
   width: min(960px, 100%);
-  margin: 0 auto;
-  padding: 3rem 1.25rem 2rem;
+  margin-inline: auto;
+}
+
+.portfolio > .hero,
+.portfolio > main,
+.portfolio > footer {
+  padding-inline: 1.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: -999px;
+  padding: 0.65rem 1rem;
+  color: var(--primary-foreground);
+  background: var(--primary);
+  z-index: 2;
+}
+
+.skip-link:focus {
+  left: 1rem;
 }
 
 .hero {
-  border: 1px solid #d4d4d8;
-  border-radius: 18px;
-  padding: 2.5rem;
-  background: linear-gradient(145deg, #ffffff, #f4f4f5);
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.hero-header,
+.experience-heading,
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
 }
 
 .eyebrow {
+  margin: 0;
+  color: var(--primary);
   font-size: 0.875rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #52525b;
+}
+
+.theme-toggle {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.theme-toggle button {
+  border: 0;
+  border-radius: 2px;
+  padding: 0.35rem 0.6rem;
+  color: var(--text-muted);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle button.active {
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.hero-copy {
+  max-width: 720px;
 }
 
 h1 {
-  margin: 0.75rem 0 1rem;
-  font-size: clamp(2rem, 3vw, 3rem);
+  margin: 3.5rem 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
 .intro {
   max-width: 60ch;
-  color: #3f3f46;
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
 .hero-actions {
@@ -37,23 +125,18 @@ h1 {
 }
 
 .hero-actions a {
-  text-decoration: none;
   padding: 0.65rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #18181b;
-  color: #ffffff;
-  background: #18181b;
-  font-weight: 600;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: var(--primary-foreground);
+  background: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .hero-actions .secondary {
-  color: #18181b;
+  color: var(--primary);
   background: transparent;
-}
-
-.hero-actions a:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
 }
 
 .section {
@@ -62,13 +145,22 @@ h1 {
 
 .section h2 {
   margin-bottom: 0.75rem;
+  color: var(--primary);
   font-size: 1.5rem;
 }
 
-.experience-list {
+.experience-list,
+.project-grid {
   display: grid;
   gap: 1rem;
   margin-top: 1.25rem;
+}
+
+.experience-card,
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
 }
 
 .experience-card {
@@ -77,9 +169,6 @@ h1 {
   gap: 1rem;
   align-items: start;
   padding: 1.25rem;
-  border: 1px solid #d4d4d8;
-  border-radius: 14px;
-  background: #ffffff;
 }
 
 .company-mark {
@@ -87,41 +176,31 @@ h1 {
   width: 3.5rem;
   height: 3.5rem;
   place-items: center;
-  border-radius: 12px;
-  color: #ffffff;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  color: var(--primary);
   font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: -0.05em;
 }
 
-.lancesoft-mark {
-  background: #2563eb;
-}
-
-.vertere-mark {
-  background: #0f766e;
-}
-
+.lancesoft-mark,
+.vertere-mark,
 .san-pablo-mark {
-  background: #a16207;
+  background: transparent;
 }
 
-.experience-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.experience-heading h3 {
+.experience-heading h3,
+.project-card h3 {
   margin: 0;
   font-size: 1.1rem;
 }
 
 .experience-title,
 .experience-dates,
-.experience-summary {
+.experience-summary,
+.project-card p {
   margin: 0.25rem 0 0;
-  color: #52525b;
+  color: var(--text-muted);
 }
 
 .experience-dates {
@@ -131,41 +210,18 @@ h1 {
 
 .experience-summary {
   margin-top: 0.75rem;
-  color: #3f3f46;
 }
 
 .project-grid {
-  margin-top: 1.25rem;
-  display: grid;
-  gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .project-card {
-  border: 1px solid #d4d4d8;
-  border-radius: 14px;
   padding: 1rem;
-  background: #ffffff;
-}
-
-.project-card h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.05rem;
 }
 
 .project-card p {
-  margin: 0;
-  color: #3f3f46;
-}
-
-.project-card a {
-  color: #18181b;
-  font-weight: 600;
-}
-
-.project-card a:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
+  margin-top: 0.5rem;
 }
 
 .contact-list {
@@ -176,40 +232,48 @@ h1 {
   padding: 0;
 }
 
-#contact a {
-  color: #18181b;
-  font-weight: 600;
+a {
+  color: var(--primary);
 }
 
-#contact a:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
+#contact a,
+footer a {
+  font-weight: 700;
 }
 
 footer {
   margin-top: 3rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #d4d4d8;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  color: #52525b;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+footer p {
+  margin: 0;
 }
 
 footer a {
-  color: #18181b;
-  text-decoration: underline;
   text-underline-offset: 3px;
-  font-weight: 600;
 }
 
-footer a:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
+:is(a, button):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
 }
 
 @media (max-width: 540px) {
+  .hero-header,
+  .experience-heading,
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-top: 2.5rem;
+  }
+
   .experience-card {
     grid-template-columns: 2.75rem minmax(0, 1fr);
     gap: 0.75rem;
@@ -220,9 +284,10 @@ footer a:focus-visible {
     width: 2.75rem;
     height: 2.75rem;
   }
+}
 
-  .experience-heading {
-    flex-direction: column;
-    gap: 0.15rem;
+@media (prefers-reduced-motion: reduce) {
+  .portfolio {
+    transition: none;
   }
 }
