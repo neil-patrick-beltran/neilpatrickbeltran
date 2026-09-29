@@ -1,5 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
+
+const THEME_STORAGE_KEY = 'portfolio-theme'
+
+function getStoredTheme() {
+  if (typeof window === 'undefined') return null
+
+  try {
+    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
+    return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : null
+  } catch {
+    return null
+  }
+}
+
+function getDeviceTheme() {
+  return typeof window !== 'undefined' &&
+    window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
+
+function getInitialTheme() {
+  const storedTheme = getStoredTheme()
+  return {
+    theme: storedTheme ?? getDeviceTheme(),
+    isUserSelected: storedTheme !== null,
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme)
+  } catch {
+    return false
+  }
+  return true
+}
 
 const projects = [
   {
@@ -49,7 +86,34 @@ const experience = [
 const currentYear = new Date().getFullYear()
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [themePreference, setThemePreference] = useState(getInitialTheme)
+  const { theme } = themePreference
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+  }, [theme])
+
+  useEffect(() => {
+    if (themePreference.isUserSelected) return undefined
+
+    const mediaQuery = window.matchMedia?.('(prefers-color-scheme: dark)')
+    if (!mediaQuery) return undefined
+
+    const updateTheme = (event) => {
+      setThemePreference({
+        theme: event.matches ? 'dark' : 'light',
+        isUserSelected: false,
+      })
+    }
+
+    mediaQuery.addEventListener?.('change', updateTheme)
+    return () => mediaQuery.removeEventListener?.('change', updateTheme)
+  }, [themePreference.isUserSelected])
+
+  function selectTheme(nextTheme) {
+    saveTheme(nextTheme)
+    setThemePreference({ theme: nextTheme, isUserSelected: true })
+  }
 
   return (
     <div className={`portfolio ${theme === 'dark' ? 'theme-dark' : ''}`}>
@@ -64,7 +128,7 @@ function App() {
               type="button"
               className={theme === 'light' ? 'active' : ''}
               aria-pressed={theme === 'light'}
-              onClick={() => setTheme('light')}
+              onClick={() => selectTheme('light')}
             >
               Light
             </button>
@@ -72,7 +136,7 @@ function App() {
               type="button"
               className={theme === 'dark' ? 'active' : ''}
               aria-pressed={theme === 'dark'}
-              onClick={() => setTheme('dark')}
+              onClick={() => selectTheme('dark')}
             >
               Dark
             </button>
@@ -81,9 +145,11 @@ function App() {
         <div className="hero-copy">
           <h1>Hi, I&apos;m Neil Patrick Beltran</h1>
           <p className="intro">
-            I&apos;m a versatile full-stack software engineer building end-to-end applications with
-            Spring Boot, Gin, and Express.js on the back end, and React, jQuery, and Angular on the
-            front end.
+            I&apos;m a versatile full-stack software engineer building end-to-end applications with{' '}
+            <span className="technology">Spring Boot</span>, <span className="technology">Gin</span>,
+            and <span className="technology">Express.js</span> on the back end, and{' '}
+            <span className="technology">React</span>, <span className="technology">jQuery</span>,
+            and <span className="technology">Angular</span> on the front end.
           </p>
           <div className="hero-actions">
             <a href="#projects">View Projects</a>
