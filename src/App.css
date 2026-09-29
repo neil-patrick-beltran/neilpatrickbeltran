@@ -132,7 +132,6 @@ h1 {
 .technology {
   display: inline-block;
   padding-inline: 0.35em;
-  border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--primary);
   font-size: 0.9em;
