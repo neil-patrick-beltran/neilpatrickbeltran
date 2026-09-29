@@ -1,5 +1,6 @@
 :root {
   --primary: #006400;
+  --primary-foreground: #fff;
   --primary-strong: #004b00;
   --surface: #ffffff;
   --surface-muted: #f7f9f7;
@@ -17,6 +18,8 @@
 }
 
 .portfolio.theme-dark {
+  --primary: #75cf85;
+  --primary-foreground: #101611;
   --surface: #18211c;
   --surface-muted: #101611;
   --text: #edf4ee;
@@ -25,7 +28,7 @@
   --focus: #f1c453;
 }
 
-.portfolio > * {
+.portfolio > *:not(.skip-link) {
   width: min(960px, 100%);
   margin-inline: auto;
 }
@@ -41,7 +44,7 @@
   top: 0;
   left: -999px;
   padding: 0.65rem 1rem;
-  color: #fff;
+  color: var(--primary-foreground);
   background: var(--primary);
   z-index: 2;
 }
@@ -93,7 +96,7 @@ footer {
 }
 
 .theme-toggle button.active {
-  color: #fff;
+  color: var(--primary-foreground);
   background: var(--primary);
 }
 
@@ -125,7 +128,7 @@ h1 {
   padding: 0.65rem 1rem;
   border: 1px solid var(--primary);
   border-radius: 4px;
-  color: #fff;
+  color: var(--primary-foreground);
   background: var(--primary);
   font-weight: 700;
   text-decoration: none;
