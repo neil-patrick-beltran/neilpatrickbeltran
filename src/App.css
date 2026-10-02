@@ -14,6 +14,7 @@
 
 .portfolio {
   min-height: 100vh;
+  min-height: 100dvh;
   color: var(--text);
   background: var(--surface-muted);
   color-scheme: light;
@@ -24,6 +25,7 @@
   color-scheme: dark;
   --primary: #75cf85;
   --primary-foreground: #101611;
+  --primary-strong: #a3e3ad;
   --surface: #18211c;
   --surface-muted: #101611;
   --text: #edf4ee;
@@ -50,7 +52,7 @@
 .portfolio > .hero,
 .portfolio > main,
 .portfolio > footer {
-  padding-inline: 1.25rem;
+  padding-inline: max(1.25rem, env(safe-area-inset-left), env(safe-area-inset-right));
 }
 
 .skip-link {
@@ -149,6 +151,7 @@ footer {
 }
 
 h1 {
+  overflow-wrap: anywhere;
   margin: 3.5rem 0 1rem;
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.1;
@@ -258,6 +261,14 @@ h1 {
   mask: url('./assets/spc2.svg') center / contain no-repeat;
 }
 
+.experience-heading {
+  flex-wrap: wrap;
+}
+
+.experience-heading {
+  flex-wrap: wrap;
+}
+
 .experience-heading h3,
 .project-card h3 {
   margin: 0;
@@ -354,13 +365,15 @@ h1 {
   z-index: 100;
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
   background: rgba(0, 0, 0, 0.6);
 }
 
 .modal {
   width: min(560px, 100%);
   max-height: 90vh;
+  max-height: 90dvh;
+  overscroll-behavior: contain;
   overflow-y: auto;
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -396,6 +409,7 @@ h1 {
 
 .contact-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   list-style: none;
   margin: 0;
@@ -447,7 +461,7 @@ footer a {
 footer {
   margin-top: 3rem;
   padding-top: 1.25rem;
-  padding-bottom: 2rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
   border-top: 1px solid var(--border);
   color: var(--text-muted);
 }
@@ -517,6 +531,7 @@ footer a {
 .phone-sim { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
 .phone-sim-screen {
   width: 260px;
+  max-width: 100%;
   min-height: 340px;
   border: 8px solid var(--text);
   border-radius: 24px;
@@ -605,3 +620,26 @@ footer a {
 .dtr-demo button[aria-pressed='true'] { background: var(--primary-strong); outline: 2px solid var(--primary); }
 .dtr-wide { grid-column: 1 / -1; }
 .dtr-cell-list { margin: 0; padding-left: 1rem; text-align: left; }
+
+/* Viewport adaptations */
+@media (pointer: coarse) {
+  .theme-toggle { width: 2.75rem; height: 2.75rem; }
+  .modal-close { min-width: 2.75rem; min-height: 2.75rem; }
+  .project-button, .hero-actions a { min-height: 2.75rem; display: inline-flex; align-items: center; }
+}
+
+@media (max-width: 360px) {
+  .portfolio > .hero, .portfolio > main, .portfolio > footer { padding-inline: 1rem; }
+  .hero-actions a { flex: 1 1 100%; justify-content: center; text-align: center; }
+  .modal { padding: 1rem; }
+}
+
+@media (max-height: 480px) and (orientation: landscape) and (max-width: 767px) {
+  .modal { max-height: 100dvh; }
+  .hero-profile { width: min(40%, 200px); }
+}
+
+@media (min-width: 1440px) {
+  .portfolio > *:not(.skip-link, .modal-backdrop) { width: min(1080px, 100%); }
+  html { font-size: 112.5%; }
+}
