@@ -116,6 +116,14 @@ function App() {
               <a href="#contact" className="secondary">
                 Contact Me
               </a>
+              <a
+                href="https://cal.com/neil-patrick-beltran/30min"
+                className="secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a Call
+              </a>
             </div>
           </div>
           <div className="hero-profile" role="img" aria-label="Neil Patrick Beltran" />
